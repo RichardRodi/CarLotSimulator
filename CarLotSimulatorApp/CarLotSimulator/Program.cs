@@ -15,16 +15,29 @@ namespace CarLotSimulator
 
 
             //Now that the Car class is created we can instanciate 3 new cars
+
+
+            //Create a CarLot class
+            //It should have at least one property: a List of cars
+
+            CarLot lot = new CarLot();
+            
+
             var myAudi = new Car();
 
             //Set the properties for each of the cars
             //Dot Notation
             myAudi.Year = 2021;
             myAudi.Make = "Audi";
-            myAudi.Model = "A4";
+            myAudi.Model = $"\t A4";
             myAudi.EngineNoise = "vroom vroom";
             myAudi.HonkNoise = "Honk";
             myAudi.IsDriveable = true;
+
+            //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
+
+            lot.CarList.Add(myAudi);
+
 
             //Object Iniitializer Syntax
             var myMustang = new Car()
@@ -37,9 +50,17 @@ namespace CarLotSimulator
             IsDriveable = true,
             };
 
+            //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
+
+            lot.CarList.Add(myMustang);
+
+
             //Constructor with parameter values
             var myFirstCar = new Car(1987,"Plymouth","Sundance","Sputter","Quack", false);
 
+            //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
+
+            lot.CarList.Add(myFirstCar);
 
             //Call each of the methods for each car
             myAudi.MakeEngineNoise();
@@ -51,17 +72,21 @@ namespace CarLotSimulator
             myFirstCar.MakeHonkNoise();
 
 
+
+
             //*************BONUS*************//
 
             //DONE Set the properties utilizing the 3 different ways we learned about, one way for each car
 
             //*************BONUS X 2*************//
 
-
-            //Create a CarLot class
-            //It should have at least one property: a List of cars
-            //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
             //At the end iterate through the list printing each of car's Year, Make, and Model to the console
+            Console.WriteLine("-----------Cars in Lot-------------");
+            foreach (var car in lot.CarList)
+            {
+                
+                Console.WriteLine($"{car.Year}\t {car.Make}\t {car.Model}\t");
+            }
         }
     }
 }
