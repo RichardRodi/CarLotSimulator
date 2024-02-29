@@ -53,7 +53,7 @@ namespace CarLotSimulator
             //Instanciate the a Carlot at the beginning of the program and as you create a car add the car to the list.
 
             lot.CarList.Add(myMustang);
-
+            
 
             //Constructor with parameter values
             var myFirstCar = new Car(1987,"Plymouth","Sundance","Sputter","Quack", false);
@@ -86,7 +86,12 @@ namespace CarLotSimulator
             {
                 
                 Console.WriteLine($"{car.Year}\t {car.Make}\t {car.Model}\t");
+                
             }
+            foreach (var car in lot.CarList)
+
+                CarLot.IncrementCars();
+                Console.WriteLine($"\nThe number of cars in the Car lot is: {CarLot.numberOfCars}");
         }
     }
 }
